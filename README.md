@@ -1,1 +1,1 @@
-# frontend-animation-templates
+# Front-End animation templates
