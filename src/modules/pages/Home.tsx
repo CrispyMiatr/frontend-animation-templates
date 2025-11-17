@@ -1,8 +1,14 @@
+import { DragBoxColorChange } from '~/components';
 import styles from '~styles/pages/home.module.scss';
 
 export const Home = () => {
 
     return (
-        <h1 className={styles['title']}>Welcome!</h1>
+        <div className={styles['container']}>
+            <div className={styles['container__wrap']}>
+                <h1 className={styles['container__wrap__title']}>Colourful dragbox</h1>
+                <DragBoxColorChange />
+            </div>
+        </div>
     )
 };
