@@ -1,4 +1,4 @@
-import { Button1, Button2, Button3, DragBoxColorChange } from '~/components';
+import { Button, DragBoxColorChange } from '~/components';
 import styles from '~styles/pages/home.module.scss';
 
 export const Home = () => {
@@ -13,9 +13,9 @@ export const Home = () => {
 
             <div className={styles['container__wrap']}>
                 <h1 className={styles['container__wrap__title']}>Buttons</h1>
-                <Button1 name='Hello' />
-                <Button2 name='Hello' />
-                <Button3 name='Hello' />
+                <Button name='Hello' variant='btn1' />
+                <Button name='Hello' variant='btn2' />
+                <Button name='Hello' variant='btn3' />
             </div>
         </div>
     )
