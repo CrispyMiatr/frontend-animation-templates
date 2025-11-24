@@ -10,6 +10,8 @@ p {
     margin: 0;
 }
 
+
+// --------== Button 1 ==--------
 .btn1 {
     cursor: pointer;
 
@@ -17,7 +19,7 @@ p {
     color: #000;
 
     padding: 12px 19px 10px 19px;
-    margin: 5px;
+    margin: 10px 5px;
     justify-self: start;
     align-content: center;
 
@@ -32,11 +34,19 @@ p {
 
         translate: 4px 4px;
 
-        // background-color: #000;
-        filter: drop-shadow(0px 0px);
+        filter: drop-shadow(0px 0px #000);
+    }
+
+    &:active {
+        translate: 6px 6px;
+
+        background-color: #bd6b6b;
+        box-shadow: 2px 2px 0px #000 inset;
     }
 }
 
+
+// --------== Button 2 ==--------
 .btn2 {
     cursor: pointer;
 
@@ -87,6 +97,8 @@ p {
     }
 }
 
+
+// --------== Button 3 ==--------
 .btn3 {
     $btn-color: #8583e2;
     position: relative;
