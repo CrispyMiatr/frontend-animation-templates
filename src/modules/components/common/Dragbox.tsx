@@ -11,7 +11,7 @@ const getRandomColor = () => {
     return color;
 };
 
-export const DragBoxColorChange = () => {
+export const Dragbox = () => {
     const [boxColor, setBoxColor] = useState("#3333FF");
 
     return (
