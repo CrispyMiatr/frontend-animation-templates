@@ -1,0 +1,74 @@
+$size-px: 100px;
+$size-pc: 100%;
+
+.drink-container {
+    position: relative;
+    width: $size-px;
+
+    // margin-top: 20px;
+
+    &__icon,
+    &__img {
+        position: absolute;
+
+        margin-top: 50px;
+        top: 0;
+        left: 0;
+
+        width: $size-px;
+        transition: opacity 0.2s ease;
+
+        img {
+            width: $size-pc;
+            object-fit: contain; // Ensures the image resizes without being squashed/stretched
+            display: block; // Removes default inline spacing
+        }
+    }
+
+    &__info {
+        position: absolute;
+
+        background-color: #e4e4e4;
+
+        margin-top: 25px;
+        padding: 10px;
+
+        border: 1px solid #000;
+        border-radius: 10px;
+
+        width: 100%;
+        box-sizing: border-box;
+
+        opacity: 0;
+        transition:
+            opacity 0.2s ease-in-out,
+            translate 0.2s ease-in-out;
+
+        z-index: -1;
+    }
+
+    &__icon {
+        opacity: 1;
+    }
+
+    &__img {
+        opacity: 0;
+    }
+
+    &:hover &__icon {
+        opacity: 0;
+    }
+
+    &:hover &__img {
+        opacity: 1;
+    }
+
+    &:hover &__info {
+        opacity: 1;
+        translate: 0px -20px;
+
+        transition:
+            opacity 0.2s ease-in-out 0.2s,
+            translate 0.2s ease-in-out 0.2s;
+    }
+}

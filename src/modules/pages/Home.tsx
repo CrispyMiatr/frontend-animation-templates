@@ -1,4 +1,4 @@
-import { Button, Dragbox, Spinning3D, Toggle } from '~/components';
+import { Button, Dragbox, DrinkItem, Spinning3D, Toggle } from '~/components';
 import styles from '~styles/pages/home.module.scss';
 
 export const Home = () => {
@@ -25,6 +25,11 @@ export const Home = () => {
             <div className={styles['container__wrap']}>
                 <h1 className={styles['container__wrap__title']}>Toggle</h1>
                 <Toggle />
+            </div>
+
+            <div className={styles['container__wrap']}>
+                <h1 className={styles['container__wrap__title']}>Drink Item</h1>
+                <DrinkItem />
             </div>
         </div>
     )
