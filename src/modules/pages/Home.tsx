@@ -23,6 +23,7 @@ export const Home = () => {
                 <Button name='Hello' variant='btn3' />
                 <Button name='Hello' variant='btn4' />
                 <Button name='Hello' variant='btn5' />
+                <Button name='Hello' variant='btn6' />
             </div>
 
             <div className={styles['container__wrap']}>

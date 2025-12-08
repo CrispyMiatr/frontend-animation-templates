@@ -252,3 +252,64 @@ $blue: #3498db;
         color: #000;
     }
 }
+
+// --------== Button 6 ==--------
+.btn6 {
+    cursor: pointer;
+    position: relative;
+
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+    background: none;
+
+    padding: 12px 19px 10px 19px;
+    margin: 5px;
+    justify-self: start;
+    align-content: center;
+
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 10px;
+
+    .title {
+        position: relative;
+        z-index: 10;
+        color: #000;
+        margin: 0;
+        transition: color 0.3s ease;
+    }
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: 2px solid #000;
+        transition: transform .2s;
+        border-radius: 10px;
+    }
+
+    &:after {
+        background-color: #e21111;
+        opacity: .5;
+        transform: translate(3px, 3px);
+    }
+
+    &:before {
+        background-color: #e7c70e;
+        opacity: .5;
+        transform: translate(-3px, -3px);
+    }
+
+    &:hover {
+
+        &:after,
+        &:before {
+            transform: translate(0);
+        }
+    }
+}
