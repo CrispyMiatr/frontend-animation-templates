@@ -1,4 +1,4 @@
-import { Button, Dragbox, DrinkItem, Spinning3D, Toggle } from '~/components';
+import { Button, Dragbox, DrinkItem, ScrollText, Spinning3D, TitleAnimation, Toggle } from '~/components';
 import styles from '~styles/pages/home.module.scss';
 
 export const Home = () => {
@@ -21,6 +21,7 @@ export const Home = () => {
                 <Button name='Hello' variant='btn1' />
                 <Button name='Hello' variant='btn2' />
                 <Button name='Hello' variant='btn3' />
+                <Button name='Hello' variant='btn4' />
             </div>
 
             <div className={styles['container__wrap']}>
