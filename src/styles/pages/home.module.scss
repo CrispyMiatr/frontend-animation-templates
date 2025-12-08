@@ -8,16 +8,22 @@
     &__wrap {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, minmax(25px, auto));
+        grid-template-rows: repeat(auto, minmax(25px, auto));
 
         &__title {
             grid-row: 1/2;
             font-size: 30px;
             margin-bottom: 0px;
         }
+
+        &__btns {
+            grid-row: 2/3;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+        }
     }
 }
-
 
 // --------== Dragbox ==--------
 .dragContainer {

@@ -18,12 +18,15 @@ export const Home = () => {
 
             <div className={styles['container__wrap']}>
                 <h1 className={styles['container__wrap__title']}>Buttons</h1>
-                <Button name='Hello' variant='btn1' />
-                <Button name='Hello' variant='btn2' />
-                <Button name='Hello' variant='btn3' />
-                <Button name='Hello' variant='btn4' />
-                <Button name='Hello' variant='btn5' />
-                <Button name='Hello' variant='btn6' />
+                <div className={styles['container__wrap__btns']}>
+                    <Button name='Hello' variant='btn1' />
+                    <Button name='Hello' variant='btn2' />
+                    <Button name='Hello' variant='btn3' />
+                    <Button name='Hello' variant='btn4' />
+                    <Button name='Hello' variant='btn5' />
+                    <Button name='Hello' variant='btn6' />
+                </div>
+
             </div>
 
             <div className={styles['container__wrap']}>
