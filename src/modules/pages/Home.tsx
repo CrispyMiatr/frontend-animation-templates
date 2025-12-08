@@ -6,6 +6,12 @@ export const Home = () => {
     return (
         <div className={styles['container']}>
             <div className={styles['container__wrap']}>
+                <h1 className={styles['container__wrap__title']}>Text animation</h1>
+                <TitleAnimation />
+                <ScrollText />
+            </div>
+
+            <div className={styles['container__wrap']}>
                 <h1 className={styles['container__wrap__title']}>Colourful dragbox</h1>
                 <Dragbox />
             </div>
