@@ -22,6 +22,7 @@ export const Home = () => {
                 <Button name='Hello' variant='btn2' />
                 <Button name='Hello' variant='btn3' />
                 <Button name='Hello' variant='btn4' />
+                <Button name='Hello' variant='btn5' />
             </div>
 
             <div className={styles['container__wrap']}>
