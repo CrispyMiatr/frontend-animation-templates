@@ -1,4 +1,4 @@
-import styles from '~styles/components/DrinkItem.module.scss';
+import styles from '~styles/components/drink-item.module.scss';
 
 export const DrinkItem = () => {
     return (

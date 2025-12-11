@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react"
-import '~styles/components/Toggle.scss'
+import '~styles/components/toggle.scss'
 
 export const Toggle = () => {
     const [isOn, setIsOn] = useState(false)

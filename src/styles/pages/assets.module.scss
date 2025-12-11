@@ -1,4 +1,4 @@
-.home-container {
+.assets-container {
     justify-items: center;
 
     margin: 0px 40px;
@@ -8,6 +8,8 @@
     grid-row-gap: 20px;
 
     &__wrap {
+        justify-items: center;
+
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(auto, minmax(25px, auto));
@@ -24,5 +26,18 @@
             flex-direction: row;
             gap: 25px;
         }
+    }
+}
+
+// --------== Dragbox ==--------
+.dragContainer {
+    height: 250px;
+
+    &__dragBox {
+        grid-row: 2/3;
+
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
     }
 }

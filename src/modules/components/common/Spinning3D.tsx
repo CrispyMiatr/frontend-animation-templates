@@ -1,6 +1,6 @@
 import { useAnimationFrame } from "framer-motion"
 import { useRef } from "react"
-import '~styles/components/Spinning3D.scss'
+import '~styles/components/spinning-3D.scss'
 
 export const Spinning3D = () => {
     const ref = useRef<HTMLDivElement>(null)
