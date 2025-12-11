@@ -1,13 +1,24 @@
-import { Button, Dragbox, DrinkItem, ScrollText, Spinning3D, TitleAnimation, Toggle } from '~/components';
+import { useState } from 'react';
+import { Button, Dragbox, DrinkItem, RangeSlider, ScrollText, Spinning3D, TitleAnimation, Toggle } from '~/components';
 import styles from '~styles/pages/home.module.scss';
 
+
 export const Home = () => {
+    const [speed, setSpeed] = useState(1);
 
     return (
         <div className={styles['home-container']}>
             <div className={styles['home-container__wrap']}>
-                <h1 className={styles['home-container__wrap__title']}>3D Cube</h1>
-                <Spinning3D />
+                <Spinning3D speed={speed} />
+                <div className={styles['home-container__wrap__controls']}>
+                    <RangeSlider
+                        label="Animation Speed:"
+                        value={speed}
+                        min={0}
+                        max={10}
+                        onChange={setSpeed}
+                    />
+                </div>
             </div>
         </div>
     )

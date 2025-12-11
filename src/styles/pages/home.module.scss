@@ -8,9 +8,12 @@
     grid-row-gap: 20px;
 
     &__wrap {
+        justify-items: center;
+
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(auto, minmax(25px, auto));
+        margin-top: 50px;
 
         &__title {
             grid-row: 1/2;
