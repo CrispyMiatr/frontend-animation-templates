@@ -1,3 +1,60 @@
+// --------== HEADER ==--------
+.navbar {
+    grid-column: 1/13;
+    grid-row: 1/2;
+    background-color: #fff;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 10px;
+
+    // padding: 10px 10px 20px 10px;
+
+    &__logo {
+        cursor: pointer;
+
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-content: left;
+
+        width: 69px;
+        margin-left: 5px;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__nav-buttons {
+        grid-column: 9/13;
+        grid-row: 1/2;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+
+        justify-self: end;
+        align-content: center;
+    }
+}
+
+
+// --------== Dragbox ==--------
+.dragContainer {
+    height: 250px;
+
+    &__dragBox {
+        grid-row: 2/3;
+
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+}
+
+
+// --------== BUTTONS ==--------
 .title {
     font-size: 30px;
     font-weight: 600;
@@ -10,6 +67,41 @@ p {
     margin: 0;
 }
 
+// --------== Button 0: Nav ==--------
+
+.btn0 {
+    cursor: pointer;
+
+    text-decoration: none;
+    color: #000;
+
+    padding: 5px 0px 2px 0px;
+
+    border-radius: 10px;
+    background-color: #ec8e8e;
+    filter: drop-shadow(4px 4px #000);
+
+    transition: all 0.1s ease-in-out;
+
+    p {
+        font-size: 24px;
+    }
+
+    &:hover {
+        color: #fff;
+
+        translate: 4px 4px;
+
+        filter: drop-shadow(0px 0px #000);
+    }
+
+    &:active {
+        translate: 6px 6px;
+
+        background-color: #bd6b6b;
+        box-shadow: 2px 2px 0px #000 inset;
+    }
+}
 
 // --------== Button 1 ==--------
 .btn1 {

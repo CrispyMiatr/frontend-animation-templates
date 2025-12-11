@@ -1,3 +1,3 @@
 export * from './hooks';
 export * from './services';
-export type { ButtonType } from './button.types.ts';
+export type { ButtonType, NavButtonType } from './button.types.ts';
