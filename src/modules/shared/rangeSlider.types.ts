@@ -1,0 +1,8 @@
+export interface RangeSliderType {
+    value: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    label: string;
+    onChange: (value: number) => void;
+}

@@ -1,15 +1,20 @@
 import { useAnimationFrame } from "framer-motion"
 import { useRef } from "react"
+import type { Spinning3DType } from "~/shared"
 import '~styles/components/spinning-3D.scss'
 
-export const Spinning3D = () => {
+export const Spinning3D = ({ speed }: Spinning3DType) => {
     const ref = useRef<HTMLDivElement>(null)
+    const timeRef = useRef(0)
 
-    useAnimationFrame((t) => {
+    useAnimationFrame((t, delta) => {
         if (!ref.current) return
 
-        const rotate = Math.sin(t / 10000) * 200
-        const y = (1 + Math.sin(t / 1000)) * -50
+        timeRef.current += delta * speed
+        const currentTime = timeRef.current
+
+        const rotate = Math.sin(currentTime / 10000) * 250
+        const y = (1 + Math.sin(currentTime / 1000)) * -35
         ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`
     })
 
