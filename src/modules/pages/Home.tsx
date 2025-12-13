@@ -9,6 +9,17 @@ export const Home = () => {
     return (
         <div className={styles['home-container']}>
             <div className={styles['home-container__wrap']}>
+                <TitleAnimation text='Interactive Puzzle Game' />
+                <ScrollText
+                    items={[
+                        "I am title 1",
+                        "Title twoooo",
+                        "Say hi to title 3"
+                    ]}
+                />
+            </div>
+
+            <div className={styles['home-container__wrap']}>
                 <Spinning3D speed={speed} />
                 <div className={styles['home-container__wrap__controls']}>
                     <RangeSlider

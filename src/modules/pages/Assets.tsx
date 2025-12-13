@@ -9,8 +9,14 @@ export const Assets = () => {
         <div className={styles['assets-container']}>
             <div className={styles['assets-container__wrap']}>
                 <h1 className={styles['assets-container__wrap__title']}>Text animation</h1>
-                <TitleAnimation />
-                <ScrollText />
+                <TitleAnimation text='Interactive Puzzle Game' />
+                <ScrollText
+                    items={[
+                        "I am title 1",
+                        "Title twoooo",
+                        "Say hi to title 3"
+                    ]}
+                />
             </div>
 
             <div className={styles['assets-container__wrap']}>
@@ -20,7 +26,7 @@ export const Assets = () => {
 
             <div className={styles['assets-container__wrap']}>
                 <h1 className={styles['assets-container__wrap__title']}>Buttons</h1>
-                <div className={styles['assets-container__wrap__btns']}>
+                <div className={styles['assets-container__wrap__grid']}>
                     <Button name='Hello' variant='btn1' />
                     <Button name='Hello' variant='btn2' />
                     <Button name='Hello' variant='btn3' />

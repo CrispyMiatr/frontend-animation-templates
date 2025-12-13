@@ -11,7 +11,7 @@ export const Toggle = () => {
         <button
             className="toggle-container"
             style={{
-                justifyContent: "flex-" + (isOn ? "start" : "end"),
+                justifyContent: "flex-" + (isOn ? "end" : "start"),
             }}
             onClick={toggleSwitch}
         >
