@@ -1,19 +1,16 @@
 import { motion } from "framer-motion";
-import { useState } from "react"
+import type { ToggleType } from "~/shared";
 import '~styles/components/toggle.scss'
 
-export const Toggle = () => {
-    const [isOn, setIsOn] = useState(false)
-
-    const toggleSwitch = () => setIsOn(!isOn)
-
+export const Toggle = ({ isActive, onToggle }: ToggleType) => {
     return (
         <button
             className="toggle-container"
             style={{
-                justifyContent: "flex-" + (isOn ? "end" : "start"),
+                justifyContent: "flex-" + (isActive ? "end" : "start"),
+                opacity: isActive ? 1 : 0.5
             }}
-            onClick={toggleSwitch}
+            onClick={onToggle}
         >
             <motion.div
                 className="toggle-handle"
