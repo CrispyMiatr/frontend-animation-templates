@@ -2,11 +2,7 @@
 .cube-container {
     perspective: 800px;
     width: 200px;
-    height: 370px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 470px;
 }
 
 .cube {
@@ -14,6 +10,8 @@
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
+
+    top: 150px;
 }
 
 .side {
@@ -25,6 +23,7 @@
     align-items: center;
     justify-content: center;
 
+    // border: 1px solid #3a3a3a;
     border-radius: 0px;
 
     transition: opacity 0.3s ease;

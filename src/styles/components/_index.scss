@@ -1,3 +1,5 @@
 @use './drink-item.module.scss' as *;
-@use './spinning-3D.scss' as *;
+// @use './spinning-3D.scss' as *;
+@use './dynamic-3D.scss' as *;
+@use './dynamic-3D-buttons.module.scss' as *;
 @use './toggle.scss' as *;

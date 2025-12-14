@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Button, Dynamic3D, RangeSlider, ScrollText, TitleAnimation, Toggle } from '~/components';
 import styles from '~styles/pages/home.module.scss';
-import appStyles from '~styles/app.module.scss';
+import buttonStyles from '~styles/components/dynamic-3D-buttons.module.scss';
 
 export const Home = () => {
     const [speed, setSpeed] = useState(1);
-    const [currentStyle, setCurrentStyle] = useState(appStyles['btn1']);
+    const [currentStyle, setCurrentStyle] = useState(buttonStyles['btn1']);
     const [visibleSides, setVisibleSides] = useState<boolean[]>([true, true, true, true, true, true]);
 
     const handleToggle = (index: number) => {
@@ -41,7 +41,7 @@ export const Home = () => {
             <div className={styles['home-container__wrap']}>
                 <div className={styles['home-container__wrap__grid']} style={{ marginBottom: '20px' }}>
                     {buttons.map((btn, i) => (
-                        <div key={i} onClick={() => setCurrentStyle(appStyles[btn.variant])}>
+                        <div key={i} onClick={() => setCurrentStyle(buttonStyles[btn.variant])}>
                             <Button name={btn.name} variant={btn.variant} />
                         </div>
                     ))}

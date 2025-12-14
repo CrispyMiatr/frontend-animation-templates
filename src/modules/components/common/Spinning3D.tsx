@@ -19,14 +19,14 @@ export const Spinning3D = ({ speed }: Spinning3DType) => {
     })
 
     return (
-        <div className="cube-container">
-            <div className="cube" ref={ref}>
-                <div className="side front" />
-                <div className="side left" />
-                <div className="side right" />
-                <div className="side top" />
-                <div className="side bottom" />
-                <div className="side back" />
+        <div className="s-cube-container">
+            <div className="s-cube" ref={ref}>
+                <div className="s-side s-front" />
+                <div className="s-side s-left" />
+                <div className="s-side s-right" />
+                <div className="s-side s-top" />
+                <div className="s-side s-bottom" />
+                <div className="s-side s-back" />
             </div>
         </div>
     )

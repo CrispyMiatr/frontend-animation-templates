@@ -1,186 +1,27 @@
-// $background: #0a0a0a;
-$background: #fff;
-
-h1 {
-    font-size: 32px;
-    font-weight: 600;
-}
-
-h2 {
-    font-size: 150px;
-    font-weight: 600;
-}
-
-p {
-    font-size: 18px;
-}
-
-// --------== HEADER ==--------
-.navbar {
-    grid-column: 1/13;
-    grid-row: 1/2;
-    background-color: $background;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-    grid-column-gap: 10px;
-
-    padding: 10px 10px 15px 10px;
-
-    &__logo {
-        cursor: pointer;
-
-        grid-column: 1/2;
-        grid-row: 1/2;
-        justify-content: left;
-
-        width: 69px;
-        margin-left: 5px;
-
-        &--hidden {
-            display: none;
-        }
-    }
-
-    &__nav-buttons {
-        grid-column: 9/13;
-        grid-row: 1/2;
-
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-
-        justify-self: end;
-        align-content: center;
-    }
-}
-
-
-// --------== Range Slider ==--------
-.range-slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-top: 50px;
-    margin-bottom: 20px;
-
-    &__label {
-        color: #000;
-        font-size: 1rem;
-        font-weight: 500;
-    }
-
-    &__value {
-        font-family: monospace;
-        color: #1784c4;
-    }
-
-    &__input {
-        cursor: pointer;
-        accent-color: #1784c4;
-        /* Sets the color of the slider thumb/track in modern browsers */
-        width: 200px;
-    }
-}
-
-
-// --------== Dragbox ==--------
-.dragContainer {
-    height: 250px;
-
-    &__dragBox {
-        grid-row: 2/3;
-
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-    }
-}
-
-
-// --------== BUTTONS ==--------
-.title {
-    font-size: 30px;
-    font-weight: 600;
-    text-align: center;
-
-    filter: drop-shadow(0px 0px);
-}
-
-p {
-    margin: 0;
-}
-
-// --------== Button 0: Nav ==--------
-
-.btn0 {
-    cursor: pointer;
-
-    text-decoration: none;
-    color: #000;
-
-    padding: 5px 0px;
-
-    border-radius: 10px;
-    background-color: #ec8e8e;
-    filter: drop-shadow(4px 4px #000);
-
-    transition: all 0.1s ease-in-out;
-
-    p {
-        font-size: 18px;
-    }
-
-    &:hover {
-        color: #fff;
-
-        translate: 4px 4px;
-
-        filter: drop-shadow(0px 0px #000);
-    }
-
-    &:active {
-        translate: 6px 6px;
-
-        background-color: #bd6b6b;
-        box-shadow: 2px 2px 0px #000 inset;
-    }
-}
+$parent-hover: ":global(.interactive-3d-container:hover)";
+$parent-active: ":global(.interactive-3d-container:active)";
 
 // --------== Button 1 ==--------
 .btn1 {
     cursor: pointer;
 
-    text-decoration: none;
-    color: #000;
-
-    padding: 12px 19px;
-    margin: 5px;
-    justify-self: start;
-    align-content: center;
-
-    border: 1px solid #000;
+    border: 4px solid #000;
     border-radius: 10px;
     background-color: #ec8e8e;
-    filter: drop-shadow(4px 4px #000);
+    opacity: .5;
 
     transition: all 0.1s ease-in-out;
 
-    &:hover {
+    &:hover,
+    #{$parent-hover} & {
         color: #fff;
-
-        translate: 4px 4px;
-
-        filter: drop-shadow(0px 0px #000);
+        border: 1px solid #000;
     }
 
-    &:active {
-        translate: 6px 6px;
-
+    &:active,
+    #{$parent-active} & {
         background-color: #bd6b6b;
-        box-shadow: 2px 2px 0px #000 inset;
+        border: 2px solid #000;
     }
 }
 
@@ -203,11 +44,13 @@ p {
     border-radius: 10px;
     background-color: #8eec9e;
 
-    &:hover {
+    &:hover h2,
+    #{$parent-hover} & h2 {
         animation: wobble 0.8s;
     }
 
-    &:active {
+    &:active,
+    #{$parent-active} & {
         background-color: #70c07d;
     }
 }
@@ -216,33 +59,34 @@ p {
 
     0%,
     100% {
-        transform: translateX(0%);
+        transform: translate(0%);
     }
 
     15% {
-        transform: translateX(-5%);
+        transform: translate(-15%);
     }
 
     30% {
-        transform: translateX(4%);
+        transform: translate(12%);
     }
 
     45% {
-        transform: translateX(-3%);
+        transform: translate(-9%);
     }
 
     60% {
-        transform: translateX(2%);
+        transform: translate(6%);
     }
 
     75% {
-        transform: translateX(-1%);
+        transform: translate(-3%);
     }
 }
 
 
 // --------== Button 3 ==--------
-$btn-color: #8583e2;
+$btn3: #8583e2;
+$border3: #3a3866;
 
 .btn3 {
     position: relative;
@@ -253,12 +97,9 @@ $btn-color: #8583e2;
     text-decoration: none;
     color: #000;
 
-    padding: 12px 19px;
-    margin: 5px;
     justify-self: start;
     align-content: center;
 
-    border-radius: 10px;
     z-index: 1;
 
     &::before,
@@ -273,8 +114,7 @@ $btn-color: #8583e2;
     &::before {
         width: 100%;
         left: 0;
-        border-radius: 10px;
-        background-color: $btn-color;
+        background-color: $btn3;
         z-index: -1;
     }
 
@@ -282,13 +122,13 @@ $btn-color: #8583e2;
         width: 0;
         left: 50%;
         border: 1px solid transparent;
-        border-radius: 10px;
         transform: translate(-50%, 0);
         z-index: 1;
     }
 
-    &:hover {
-        color: $btn-color;
+    &:hover,
+    #{$parent-hover} & {
+        color: $btn3;
 
         &::before {
             transform: scale(0, 1);
@@ -296,14 +136,15 @@ $btn-color: #8583e2;
 
         &::after {
             width: 100%;
-            border-color: $btn-color;
+            border-color: $btn3;
             transition-delay: 0.2s;
         }
     }
 
-    &:active {
-        color: #000;
-        transition: none;
+    &:active,
+    #{$parent-active} & {
+        color: $border3;
+        border-color: $border3;
     }
 }
 
@@ -317,10 +158,7 @@ $btn-color: #8583e2;
 
     outline: none;
     border: none;
-    border-radius: 10px;
 
-    padding: 12px 19px;
-    margin: 5px;
     justify-self: start;
     align-content: center;
 }
@@ -339,18 +177,20 @@ $btn-color: #8583e2;
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    border-radius: 10px;
 }
 
-.btn4:active {
+.btn4:active,
+#{$parent-active} .btn4 {
     color: #000
 }
 
-.btn4:active:after {
+.btn4:active:after,
+#{$parent-active} .btn4:after {
     background: transparent;
 }
 
-.btn4:hover:before {
+.btn4:hover:before,
+#{$parent-hover} .btn4:before {
     opacity: 1;
 }
 
@@ -363,7 +203,6 @@ $btn-color: #8583e2;
     background: #111;
     left: 0;
     top: 0;
-    border-radius: 10px;
 }
 
 @keyframes glowing {
@@ -388,22 +227,22 @@ $blue: #3498db;
     text-decoration: none;
     color: #fff;
 
-    padding: 12px 19px 10px 19px;
-    margin: 5px;
     justify-self: start;
     align-content: center;
 
-    border-radius: 10px;
     box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+    background-color: transparent;
 
-    transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out !important;
 
-    &:hover {
+    &:hover,
+    #{$parent-hover} & {
         box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
         color: #000;
     }
 
-    &:active {
+    &:active,
+    #{$parent-active} & {
         color: $blue;
         box-shadow: 0 0 10px 0 $blue inset, 0 0 5px 2px $blue;
     }
@@ -415,20 +254,15 @@ $blue: #3498db;
     position: relative;
 
     text-decoration: none;
-    font-size: 16px;
     color: #000;
     background: none;
 
-    padding: 12px 19px;
-    margin: 5px;
     justify-self: start;
     align-content: center;
 
     transition: all 0.3s ease;
-    border: none;
-    border-radius: 10px;
 
-    .title {
+    h2 {
         position: relative;
         z-index: 10;
         color: #000;
@@ -446,22 +280,22 @@ $blue: #3498db;
         right: 0;
         border: 2px solid #000;
         transition: transform .2s;
-        border-radius: 10px;
     }
 
     &:after {
         background-color: #e21111;
         opacity: .5;
-        transform: translate(3px, 3px);
+        transform: translate(5px, 5px);
     }
 
     &:before {
         background-color: #e7c70e;
         opacity: .5;
-        transform: translate(-3px, -3px);
+        transform: translate(-5px, -5px);
     }
 
-    &:hover {
+    &:hover,
+    #{$parent-hover} & {
 
         &:after,
         &:before {
@@ -469,8 +303,8 @@ $blue: #3498db;
         }
     }
 
-    &:active {
-        opacity: 1;
+    &:active,
+    #{$parent-active} & {
         background-color: #e28e11;
     }
 }
