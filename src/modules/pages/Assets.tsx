@@ -9,7 +9,7 @@ export const Assets = () => {
         <div className={styles['assets-container']}>
             <div className={styles['assets-container__wrap']}>
                 <h1 className={styles['assets-container__wrap__title']}>Text animation</h1>
-                <TitleAnimation text='Interactive Puzzle Game' />
+                <TitleAnimation text='Very important title' />
                 <ScrollText
                     items={[
                         "I am title 1",
