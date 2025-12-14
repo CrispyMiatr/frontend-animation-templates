@@ -60,18 +60,22 @@ export const Home = () => {
                 <ScrollText
                     items={[
                         "Solve the puzzle!",
-                        "Play around with the toggles and make something appear.",
-                        "Apply different styles with the buttons below.",
-                        "What happens if you drag the cube, and set Speed to 4.2?"
+                        "Play around with the toggles and apply different styles.",
+                        "What happens if you drag the cube, and set the speed to a certain number?",
+                        "Hint: What button style is used elsewhere?"
                     ]}
                 />
             </div>
 
             <div className={styles['home-container__wrap']}>
                 <div className={styles['home-container__wrap__grid']}>
-                    {buttons.map((btn, i) => (
-                        <div key={i} onClick={() => setCurrentStyle(buttonStyles[btn.variant])}>
-                            <Button name={btn.name} variant={btn.variant} />
+                    {visibleSides.map((isOn, index) => (
+                        <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <p className='toggle-label' style={{ fontWeight: 'bold', marginBottom: '5px' }}>{index + 1}</p>
+                            <Toggle
+                                isActive={isOn}
+                                onToggle={() => handleToggle(index)}
+                            />
                         </div>
                     ))}
                 </div>
@@ -98,13 +102,9 @@ export const Home = () => {
 
             <div className={styles['home-container__wrap']}>
                 <div className={styles['home-container__wrap__grid']}>
-                    {visibleSides.map((isOn, index) => (
-                        <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            <p className='toggle-label' style={{ fontWeight: 'bold', marginBottom: '5px' }}>{index + 1}</p>
-                            <Toggle
-                                isActive={isOn}
-                                onToggle={() => handleToggle(index)}
-                            />
+                    {buttons.map((btn, i) => (
+                        <div key={i} onClick={() => setCurrentStyle(buttonStyles[btn.variant])}>
+                            <Button name={btn.name} variant={btn.variant} />
                         </div>
                     ))}
                 </div>
