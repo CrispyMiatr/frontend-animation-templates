@@ -8,7 +8,7 @@ export const Toggle = ({ isActive, onToggle }: ToggleType) => {
             className="toggle-container"
             style={{
                 justifyContent: "flex-" + (isActive ? "end" : "start"),
-                opacity: isActive ? 1 : 0.5
+                opacity: isActive ? 1 : 0.6
             }}
             onClick={onToggle}
         >

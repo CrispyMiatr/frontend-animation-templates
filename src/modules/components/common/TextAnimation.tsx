@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import type { TitleAnimationType, ScrollTextType } from '~/shared';
+import styles from '~styles/app.module.scss';
 
 export const TitleAnimation = ({ text }: TitleAnimationType) => {
     return (
         <motion.h1
+            className={styles['animated-title']}
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
@@ -11,7 +13,6 @@ export const TitleAnimation = ({ text }: TitleAnimationType) => {
                 duration: 1,
                 ease: 'easeInOut',
             }}
-            className="animated-title"
         >
             {text}
         </motion.h1>
@@ -25,7 +26,7 @@ const textVariants = {
 
 export const ScrollText = ({ items }: ScrollTextType) => {
     return (
-        <div className="scroll-container">
+        <div className={styles['scroll-container']}>
             {items.map((text, index) => (
                 <motion.p
                     key={index}
