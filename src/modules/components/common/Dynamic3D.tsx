@@ -1,11 +1,35 @@
-import { motion, useAnimationFrame } from "framer-motion"
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion"
 import { useRef, useState } from "react"
 import type { Dynamic3DType } from "~/shared"
 import '~styles/components/dynamic-3D.scss'
 
-export const Dynamic3D = ({ speed, cubeStyle, visibleSides }: Dynamic3DType) => {
+export const Dynamic3D = ({ speed, cubeStyle, visibleSides, easterEggReady }: Dynamic3DType) => {
     const ref = useRef<HTMLDivElement>(null);
     const timeRef = useRef(0);
+    const [showEasterEgg, setShowEasterEgg] = useState(false);
+
+    // Track pos
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    // Check if bottom left
+    const checkPosition = () => {
+        const currentX = x.get();
+        const currentY = y.get();
+
+        // Constraints: left: -500, bottom: 100
+        const isBottomLeft = currentX < -350 && currentY > 50;
+
+        if (easterEggReady && isBottomLeft) {
+            setShowEasterEgg(true);
+        } else {
+            setShowEasterEgg(false);
+        }
+    };
+
+    const handleDrag = () => {
+        checkPosition();
+    };
 
     useAnimationFrame((t, delta) => {
         if (!ref.current) return
@@ -30,10 +54,32 @@ export const Dynamic3D = ({ speed, cubeStyle, visibleSides }: Dynamic3DType) => 
         boxSizing: 'border-box' as const
     };
 
+    if (showEasterEgg) {
+        return (
+            <div
+                className="egg-container"
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <img
+                    className="easter-egg"
+                    src="./src/assets/cat-jumping.gif"
+                    alt="You found it the easter egg!"
+                />
+                <h3>Congratulations! You found the easter-egg!</h3>
+            </div>
+        )
+    }
+
     return (
         <motion.div
             className="cube-container"
             drag
+            style={{ x, y }}
+            onDrag={handleDrag}
             dragConstraints={{ left: -500, right: 500, top: -100, bottom: 100 }}
             whileHover={{ cursor: "grab" }}
             whileDrag={{ scale: 0.9, cursor: "grabbing" }}
