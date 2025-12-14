@@ -66,27 +66,66 @@ p {
 
 // --------== Range Slider ==--------
 .range-slider {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    margin-top: 40px;
+    margin-top: 5px;
 
     &__label {
         color: #fff;
-        font-size: 1rem;
+        font-size: 24px;
         font-weight: 500;
     }
 
     &__value {
         font-family: monospace;
         color: #1784c4;
+        font-weight: 500;
     }
 
     &__input {
         cursor: pointer;
         accent-color: #1784c4;
-        width: 200px;
+        width: 300px;
+
+        margin-top: 5px;
+    }
+
+    &__info {
+        position: absolute;
+        top: -40px;
+
+        background-color: #e4e4e4;
+        color: #000;
+
+        padding: 8px 12px;
+        border: 1px solid #000;
+        border-radius: 10px;
+
+        font-weight: 600;
+        font-size: 18px;
+        white-space: nowrap;
+
+        opacity: 0;
+        z-index: -1;
+        pointer-events: none;
+
+        transition:
+            opacity 0.2s ease-in-out,
+            translate 0.2s ease-in-out;
+    }
+
+    &:hover &__info {
+        opacity: 1;
+        z-index: 10;
+        translate: 0px -10px;
+
+        transition:
+            opacity 0.2s ease-in-out 3s,
+            translate 0.2s ease-in-out 3s;
     }
 }
 
