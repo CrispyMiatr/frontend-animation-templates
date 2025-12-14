@@ -1,8 +1,26 @@
 // --------== Spinning 3D Cube ==--------
+.drag-area-container {
+    width: 80vw;
+    max-width: 1200px;
+    height: 500px;
+
+    background-color: #050505;
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    margin: 0 auto;
+}
+
 .cube-container {
     perspective: 800px;
     width: 200px;
-    height: 470px;
+    height: 200px;
+    cursor: grab;
 }
 
 .cube {
@@ -10,8 +28,6 @@
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
-
-    top: 150px;
 }
 
 .side {
@@ -23,8 +39,8 @@
     align-items: center;
     justify-content: center;
 
-    // border: 1px solid #3a3a3a;
     border-radius: 0px;
+    user-select: none;
 
     transition: opacity 0.3s ease;
 }
@@ -58,8 +74,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    // Make sure egg fits in the new box
+    width: 100%;
+    height: 100%;
 }
 
 .easter-egg {
-    height: 500px;
+    height: 300px; // Adjusted to fit inside the 500px container
+    object-fit: contain;
 }

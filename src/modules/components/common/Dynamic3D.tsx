@@ -4,11 +4,12 @@ import type { Dynamic3DType } from "~/shared"
 import '~styles/components/dynamic-3D.scss'
 
 export const Dynamic3D = ({ speed, cubeStyle, visibleSides, easterEggReady }: Dynamic3DType) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const timeRef = useRef(0);
     const [showEasterEgg, setShowEasterEgg] = useState(false);
 
-    // Track pos
+    const cubeRef = useRef<HTMLDivElement>(null);
+    const timeRef = useRef(0);
+    const constraintsRef = useRef(null);
+
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -17,8 +18,7 @@ export const Dynamic3D = ({ speed, cubeStyle, visibleSides, easterEggReady }: Dy
         const currentX = x.get();
         const currentY = y.get();
 
-        // Constraints: left: -500, bottom: 100
-        const isBottomLeft = currentX < -350 && currentY > 50;
+        const isBottomLeft = currentX < -250 && currentY > 150;
 
         if (easterEggReady && isBottomLeft) {
             setShowEasterEgg(true);
@@ -32,14 +32,14 @@ export const Dynamic3D = ({ speed, cubeStyle, visibleSides, easterEggReady }: Dy
     };
 
     useAnimationFrame((t, delta) => {
-        if (!ref.current) return
+        if (!cubeRef.current) return
 
         timeRef.current += delta * speed
         const currentTime = timeRef.current
 
         const rotate = Math.sin(currentTime / 10000) * 250
-        const y = (1 + Math.sin(currentTime / 1000)) * -20
-        ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`
+        const yOffset = (1 + Math.sin(currentTime / 1000)) * -15
+        cubeRef.current.style.transform = `translateY(${yOffset}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`
     });
 
     const getSideClass = (position: string) => {
@@ -56,78 +56,76 @@ export const Dynamic3D = ({ speed, cubeStyle, visibleSides, easterEggReady }: Dy
 
     if (showEasterEgg) {
         return (
-            <div
-                className="egg-container"
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <img
-                    className="easter-egg"
-                    src="./src/assets/cat-jumping.gif"
-                    alt="You found it the easter egg!"
-                />
-                <h3>Congratulations! You found the easter-egg!</h3>
+            <div className="drag-area-container">
+                <div className="egg-container">
+                    <img
+                        className="easter-egg"
+                        src="./src/assets/cat-jumping.gif"
+                        alt="You found it the easter egg!"
+                    />
+                    <h3>Congratulations! You found the easter-egg!</h3>
+                </div>
             </div>
         )
     }
 
     return (
-        <motion.div
-            className="cube-container"
-            drag
-            style={{ x, y }}
-            onDrag={handleDrag}
-            dragConstraints={{ left: -500, right: 500, top: -100, bottom: 100 }}
-            whileHover={{ cursor: "grab" }}
-            whileDrag={{ scale: 0.9, cursor: "grabbing" }}
-            transition={{ bounceStiffness: 100 }}
-        >
-            <div className="cube interactive-3d-container" ref={ref}>
-                <div
-                    className={getSideClass('front')}
-                    style={{ ...resetStyle, opacity: visibleSides[0] ? 1 : 0 }}
-                >
-                    <h2>⋅</h2>
-                </div>
+        <div className="drag-area-container" ref={constraintsRef}>
+            <motion.div
+                className="cube-container"
+                drag
+                style={{ x, y }}
+                onDrag={handleDrag}
+                dragConstraints={constraintsRef}
+                dragElastic={0.2}
+                whileHover={{ cursor: "grab" }}
+                whileDrag={{ scale: 0.9, cursor: "grabbing" }}
+                transition={{ bounceStiffness: 100 }}
+            >
+                <div className="cube interactive-3d-container" ref={cubeRef}>
+                    <div
+                        className={getSideClass('front')}
+                        style={{ ...resetStyle, opacity: visibleSides[0] ? 1 : 0 }}
+                    >
+                        <h2>⋅</h2>
+                    </div>
 
-                <div
-                    className={getSideClass('back')}
-                    style={{ ...resetStyle, opacity: visibleSides[1] ? 1 : 0 }}
-                >
-                    <h2>⁚</h2>
-                </div>
+                    <div
+                        className={getSideClass('back')}
+                        style={{ ...resetStyle, opacity: visibleSides[1] ? 1 : 0 }}
+                    >
+                        <h2>⁚</h2>
+                    </div>
 
-                <div
-                    className={getSideClass('left')}
-                    style={{ ...resetStyle, opacity: visibleSides[2] ? 1 : 0 }}
-                >
-                    <h2>⋰</h2>
-                </div>
+                    <div
+                        className={getSideClass('left')}
+                        style={{ ...resetStyle, opacity: visibleSides[2] ? 1 : 0 }}
+                    >
+                        <h2>⋰</h2>
+                    </div>
 
-                <div
-                    className={getSideClass('right')}
-                    style={{ ...resetStyle, opacity: visibleSides[3] ? 1 : 0 }}
-                >
-                    <h2>⸬</h2>
-                </div>
+                    <div
+                        className={getSideClass('right')}
+                        style={{ ...resetStyle, opacity: visibleSides[3] ? 1 : 0 }}
+                    >
+                        <h2>⸬</h2>
+                    </div>
 
-                <div
-                    className={getSideClass('top')}
-                    style={{ ...resetStyle, opacity: visibleSides[4] ? 1 : 0 }}
-                >
-                    <h2>⁙</h2>
-                </div>
+                    <div
+                        className={getSideClass('top')}
+                        style={{ ...resetStyle, opacity: visibleSides[4] ? 1 : 0 }}
+                    >
+                        <h2>⁙</h2>
+                    </div>
 
-                <div
-                    className={getSideClass('bottom')}
-                    style={{ ...resetStyle, opacity: visibleSides[5] ? 1 : 0 }}
-                >
-                    <h2>⁝ ⁝</h2>
+                    <div
+                        className={getSideClass('bottom')}
+                        style={{ ...resetStyle, opacity: visibleSides[5] ? 1 : 0 }}
+                    >
+                        <h2>⁝ ⁝</h2>
+                    </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     );
 };
