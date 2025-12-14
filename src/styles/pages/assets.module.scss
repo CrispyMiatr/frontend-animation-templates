@@ -1,11 +1,15 @@
+$background: #0a0a0a;
+
 .assets-container {
     justify-items: center;
 
-    margin: 0px 40px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(10, minmax(25px, auto));
+    grid-auto-rows: minmax(25px, auto);
     grid-row-gap: 20px;
+
+    background-color: $background;
+    min-height: 100vh;
 
     &__wrap {
         justify-items: center;
