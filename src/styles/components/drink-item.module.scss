@@ -5,7 +5,9 @@ $size-pc: 100%;
     position: relative;
     width: $size-px;
 
-    // margin-top: 20px;
+    height: 325px;
+
+    z-index: 1;
 
     &__icon,
     &__img {
@@ -28,12 +30,13 @@ $size-pc: 100%;
     &__info {
         position: absolute;
 
-        background-color: #e4e4e4;
+        color: #fff;
+        background-color: #111111;
 
         margin-top: 25px;
         padding: 10px;
 
-        border: 1px solid #000;
+        border: 1px solid #2b2b2b;
         border-radius: 10px;
 
         width: 100%;
