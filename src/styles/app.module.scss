@@ -47,12 +47,16 @@ p {
         justify-self: end;
         align-content: center;
     }
+
+    p {
+        font-size: 21px;
+    }
 }
 
 
 // --------== Text Animation ==--------
 .animated-title {
-    margin-top: 25px;
+    margin-top: 80px;
 }
 
 .scroll-container {
