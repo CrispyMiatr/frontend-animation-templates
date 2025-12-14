@@ -31,13 +31,29 @@
 
 // --------== Dragbox ==--------
 .dragContainer {
-    height: 250px;
+    width: 80vw;
+    height: 300px;
+    max-width: 1200px;
+    margin-top: 10px;
+
+    background-color: #050505;
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 
     &__dragBox {
-        grid-row: 2/3;
+        cursor: grab;
 
         width: 100px;
         height: 100px;
         border-radius: 10px;
+
+        &:active {
+            cursor: grabbing;
+        }
     }
 }

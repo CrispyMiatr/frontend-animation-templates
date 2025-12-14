@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion';
-import styles from '~styles/app.module.scss';
+import styles from '~styles/pages/assets.module.scss';
 
 const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -14,11 +14,14 @@ const getRandomColor = () => {
 export const Dragbox = () => {
     const [boxColor, setBoxColor] = useState("#3333FF");
 
+    const constraintsRef = useRef(null);
+
     return (
-        <div className={styles['dragContainer']}>
+        <div className={styles['dragContainer']} ref={constraintsRef}>
             <motion.div className={styles['dragContainer__dragBox']}
                 drag
-                dragConstraints={{ left: -500, right: 500, top: 0, bottom: 150 }}
+                dragConstraints={constraintsRef}
+                dragElastic={0.2}
                 onDragEnd={() => setBoxColor(getRandomColor())}
                 style={{ backgroundColor: boxColor }}
                 whileHover={{ scale: 1.1 }}
