@@ -3,8 +3,6 @@ export interface ButtonType {
     variant: string;
 }
 
-export interface NavButtonType {
-    name: string;
-    variant: string;
+export interface NavButtonType extends ButtonType {
     link: string;
 }
