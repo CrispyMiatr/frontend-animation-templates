@@ -26,7 +26,7 @@ To get started with the project, follow these steps:
    npm install
    ```
 
-    2.2. **RRun the development server:**
+    2.2. **Run the development server:**
    ```bash
    npm run dev
    ```
